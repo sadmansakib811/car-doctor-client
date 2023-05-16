@@ -2,11 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Home/Login/Login";
-import SignUp from "../pages/Home/Signup/Signup";
+
 
 import BookService from "../pages/BookService/BookService";
 import Bookings from "../pages/Bookings/Bookings";
 import PrivateRoute from "./PrivateRoute";
+import SignUp from "../pages/Home/Signup/SignUp";
 
 
 const router = createBrowserRouter([
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         {
           path: 'book/:id', 
           element: <PrivateRoute><BookService></BookService></PrivateRoute>, 
-          loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+          loader: ({params}) => fetch(`https://car-doctor-server-five-pi.vercel.app/services/${params.id}`)
         },
         {
           path: 'bookings', 
